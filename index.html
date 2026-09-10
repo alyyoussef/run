@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0a0f0d" />
+  <meta name="description" content="A design exercise: a guided 5km run for a small smartwatch, with the phone used for setup and review." />
+  <title>Guided 5km run — wearable design exercise</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="atmosphere" aria-hidden="true">
+    <div class="orb orb-a" data-parallax="0.18"></div>
+    <div class="orb orb-b" data-parallax="0.08"></div>
+    <div class="orb orb-c" data-parallax="0.28"></div>
+    <div class="grain"></div>
+  </div>
+
+  <div class="scroll-progress" aria-hidden="true">
+    <span class="scroll-progress__bar"></span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#top">Guided run</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle__label">Menu</span>
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Page">
+        <a href="#brief">Brief</a>
+        <a href="#start">Starting point</a>
+        <a href="#constraint">Screen size</a>
+        <a href="#people">People</a>
+        <a href="#split">Watch &amp; phone</a>
+        <a href="#prototypes">Prototypes</a>
+        <a href="#choices">Choices</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">Design exercise · Wearable + phone</p>
+          <h1>A guided 5km run, designed for a small watch.</h1>
+          <p class="lede">
+            Live pace, heart rate, and progress on the wrist. Setup and the recap live on the phone.
+            The work follows three people, not one generic runner.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#prototypes">View prototypes</a>
+            <a class="btn btn-ghost" href="#brief">Read the brief</a>
+          </div>
+        </div>
+
+        <div class="hero-stage" aria-hidden="true">
+          <div class="watch-halo" data-parallax="0.12">
+            <div class="watch-face">
+              <span class="watch-label">1.39&quot;</span>
+              <span class="watch-metric">2.4<span>km</span></span>
+              <span class="watch-sub">Distance</span>
+            </div>
+          </div>
+          <div class="float-chip chip-a" data-parallax="-0.06">Pace 5:42</div>
+          <div class="float-chip chip-b" data-parallax="0.1">HR 142</div>
+          <div class="float-chip chip-c" data-parallax="-0.04">Cadence 168</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="brief">
+      <div class="wrap">
+        <p class="section-index">01</p>
+        <h2>The brief</h2>
+        <p class="section-intro">
+          Design a guided running session for a consumer fitness product.
+          The watch helps during the run. The phone is for before and after.
+        </p>
+
+        <div class="brief-grid">
+          <article class="glass-card">
+            <h3>The session</h3>
+            <p>A person starts a 5km guided run. The product should stay useful while they are moving.</p>
+          </article>
+          <article class="glass-card">
+            <h3>What to show</h3>
+            <ul class="metric-list">
+              <li>Pace</li>
+              <li>Heart rate</li>
+              <li>Cadence</li>
+              <li>Elapsed time</li>
+              <li>Distance</li>
+            </ul>
+          </article>
+          <article class="glass-card">
+            <h3>When to speak up</h3>
+            <p>If they fall behind target pace, or if heart rate goes past a safe range.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="start">
+      <div class="wrap">
+        <p class="section-index">02</p>
+        <h2>Before drawing screens</h2>
+        <p class="section-intro">
+          I read the assignment, then wrote down the things I needed to decide first.
+          None of this showed up as a screen. It shaped every screen after.
+        </p>
+
+        <ol class="question-list">
+          <li>
+            <h3>How people run</h3>
+            <p>Two legs. One leg and a prosthetic. One leg and running sticks. The watch still has to be usable in each case — large enough targets, few taps, nothing that needs two hands.</p>
+          </li>
+          <li>
+            <h3>Units</h3>
+            <p>Pace, heart rate, cadence, time, and distance can be shown in different units. That choice belongs in setup, on the phone, before the run starts.</p>
+          </li>
+          <li>
+            <h3>What “off track” means</h3>
+            <p>Falling behind a target pace, and a safe heart rate range with a little give on either side. Those limits should be the person’s, not a hidden default.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-constraint" id="constraint">
+      <div class="wrap constraint-grid">
+        <div>
+          <p class="section-index">03</p>
+          <h2>The smallest face first</h2>
+          <p class="section-intro">
+            I looked at their watch sizes and designed for the smallest one: a 1.39&quot; round display.
+            If a layout holds there, it has room to grow on larger watches.
+          </p>
+          <p>
+            Type is Inter, never smaller than 12px. The metric each person cares about most is the largest thing on the face.
+            Everything else steps down.
+          </p>
+        </div>
+        <figure class="size-figure">
+          <div class="true-size-watch" aria-hidden="true">
+            <span>1.39&quot;</span>
+          </div>
+          <figcaption>About actual size on a typical phone screen. This is the canvas I designed in.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="people">
+      <div class="wrap">
+        <p class="section-index">04</p>
+        <h2>Three people to design against</h2>
+        <p class="section-intro">
+          No user profiles came with the brief. I looked at who often buys a smartwatch under $200
+          and wrote three short, made-up portraits. They are gender-neutral on purpose.
+          They are not research — they kept the screens from drifting toward an “average” runner.
+        </p>
+
+        <div class="persona-grid">
+          <article class="persona-card persona-chris">
+            <p class="persona-age">Chris · 68</p>
+            <h3>Retired HR</h3>
+            <p>Recently joined a seniors’ running club. The group meets once a week, as much for the people as for the run.</p>
+            <dl>
+              <div>
+                <dt>Needs</dt>
+                <dd>Reduced vision. Large type and buttons. One action at a time.</dd>
+              </div>
+              <div>
+                <dt>Looks at first</dt>
+                <dd>Distance, then time, then heart rate.</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="persona-card persona-sam">
+            <p class="persona-age">Sam · 52</p>
+            <h3>Restaurant manager</h3>
+            <p>Works on a sports car as a hobby. Trying to run three times a week to help manage cholesterol.</p>
+            <dl>
+              <div>
+                <dt>Needs</dt>
+                <dd>Gets overwhelmed by busy screens. Prefers a quiet, simple layout.</dd>
+              </div>
+              <div>
+                <dt>Looks at first</dt>
+                <dd>Pace, then time, then heart rate.</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="persona-card persona-jordan">
+            <p class="persona-age">Jordan · 38</p>
+            <h3>Logistics coordinator</h3>
+            <p>Runs to take the edge off work and keep burnout at bay.</p>
+            <dl>
+              <div>
+                <dt>Needs</dt>
+                <dd>Color blindness (red and green look similar). Wants more detail and control.</dd>
+              </div>
+              <div>
+                <dt>Looks at first</dt>
+                <dd>Pace, time, cadence, then heart rate.</dd>
+              </div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="split">
+      <div class="wrap">
+        <p class="section-index">05</p>
+        <h2>What belongs on the watch</h2>
+        <p class="section-intro">
+          During a run, the wrist is bouncing. A glance has to be enough.
+          The phone is for sitting still — before the start, and after the finish.
+        </p>
+
+        <div class="split-grid">
+          <article class="glass-card split-card">
+            <p class="split-label">On the watch</p>
+            <h3>Now</h3>
+            <ul>
+              <li>Start, pause, and end the run</li>
+              <li>The numbers that matter in this moment</li>
+              <li>A short alert if pace is behind, or heart rate is too high</li>
+            </ul>
+          </article>
+          <article class="glass-card split-card">
+            <p class="split-label">On the phone</p>
+            <h3>Before and after</h3>
+            <ul>
+              <li>Set the 5km goal, units, and pace / heart-rate ranges</li>
+              <li>Full recap when the run is over</li>
+              <li>Extra charts and history, if someone wants them</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="prototypes">
+      <div class="wrap">
+        <p class="section-index">06</p>
+        <h2>Same run, three faces</h2>
+        <p class="section-intro">
+          Each prototype is clickable. If an embed feels tight on a small phone, open it in Figma instead.
+        </p>
+        <nav class="proto-jump" aria-label="Prototypes">
+          <a href="#chris">Chris</a>
+          <a href="#sam">Sam</a>
+          <a href="#jordan">Jordan</a>
+        </nav>
+      </div>
+
+      <article class="proto-block" id="chris">
+        <div class="wrap proto-layout">
+          <div class="proto-copy">
+            <p class="kicker">Chris</p>
+            <h3>One number at a time</h3>
+            <p>
+              During the run, Chris sees a single metric, set large, and swipes to see the others.
+              Distance leads. Time and heart rate follow. Fewer choices, bigger type.
+            </p>
+            <a class="text-link" href="https://www.figma.com/proto/CgkkOlu9FYwVnXIEbT4GQ8?page-id=0%3A1&amp;node-id=2154-169&amp;starting-point-node-id=2017%3A233&amp;scaling=min-zoom&amp;content-scaling=fixed" target="_blank" rel="noopener noreferrer">Open Chris’s prototype in Figma</a>
+          </div>
+          <div class="embed-shell">
+            <iframe
+              title="Chris — guided 5km run prototype"
+              loading="lazy"
+              allowfullscreen
+              src="https://embed.figma.com/proto/CgkkOlu9FYwVnXIEbT4GQ8?page-id=0%3A1&amp;node-id=2154-169&amp;viewport=-1313%2C5819%2C1.06&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;starting-point-node-id=2017%3A233&amp;embed-host=share"
+            ></iframe>
+          </div>
+        </div>
+      </article>
+
+      <article class="proto-block" id="sam">
+        <div class="wrap proto-layout">
+          <div class="proto-copy">
+            <p class="kicker">Sam</p>
+            <h3>Quiet, with a small spark</h3>
+            <p>
+              Sam’s screens stay simple and uncluttered. Pace is the largest number.
+              A checkered-flag cue is a nod to the car hobby — motivation, not extra work.
+            </p>
+            <a class="text-link" href="https://www.figma.com/proto/CgkkOlu9FYwVnXIEbT4GQ8?page-id=0%3A1&amp;node-id=2151-1014&amp;starting-point-node-id=2017%3A233&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">Open Sam’s prototype in Figma</a>
+          </div>
+          <div class="embed-shell">
+            <iframe
+              title="Sam — guided 5km run prototype"
+              loading="lazy"
+              allowfullscreen
+              src="https://embed.figma.com/proto/CgkkOlu9FYwVnXIEbT4GQ8?node-id=2151-1014&amp;viewport=-363%2C3528%2C0.55&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;starting-point-node-id=2017%3A233&amp;show-proto-sidebar=1&amp;page-id=0%3A1&amp;embed-host=share"
+            ></iframe>
+          </div>
+        </div>
+      </article>
+
+      <article class="proto-block" id="jordan">
+        <div class="wrap proto-layout">
+          <div class="proto-copy">
+            <p class="kicker">Jordan</p>
+            <h3>More on one face</h3>
+            <p>
+              Jordan gets the full set of metrics on the watch, sized by what matters most: pace, then time, then cadence, then heart rate.
+              Alerts use contrast, type size, and shape — not red versus green.
+            </p>
+            <a class="text-link" href="https://www.figma.com/proto/CgkkOlu9FYwVnXIEbT4GQ8?page-id=0%3A1&amp;node-id=2147-743&amp;starting-point-node-id=2017%3A233&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">Open Jordan’s prototype in Figma</a>
+          </div>
+          <div class="embed-shell">
+            <iframe
+              title="Jordan — guided 5km run prototype"
+              loading="lazy"
+              allowfullscreen
+              src="https://embed.figma.com/proto/CgkkOlu9FYwVnXIEbT4GQ8?node-id=2147-743&amp;viewport=-363%2C3909%2C0.55&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;starting-point-node-id=2017%3A233&amp;show-proto-sidebar=1&amp;page-id=0%3A1&amp;embed-host=share"
+            ></iframe>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="choices">
+      <div class="wrap">
+        <p class="section-index">07</p>
+        <h2>Choices and tradeoffs</h2>
+        <p class="section-intro">There is no single right layout. These are the calls I made, and what I gave up to make them.</p>
+
+        <div class="choice-grid">
+          <article class="glass-card">
+            <h3>Type and size</h3>
+            <p>Inter, 12px minimum. The lead metric is larger than the rest. Chris goes further: one metric per screen.</p>
+          </article>
+          <article class="glass-card">
+            <h3>Alerts</h3>
+            <p>Only two interruptions while running: behind pace, or heart rate past the person’s safe range. Everything else can wait.</p>
+          </article>
+          <article class="glass-card">
+            <h3>Color</h3>
+            <p>Jordan cannot rely on red and green. Status is also shown with size, position, and simple shapes.</p>
+          </article>
+          <article class="glass-card">
+            <h3>What I traded</h3>
+            <p>Designing for the smallest round face meant less on the watch and more on the phone. Three versions took more time than one generic runner, but the screens stayed honest to different needs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>Design exercise · A guided 5km run for watch and phone</p>
+      <p class="footer-note">Watch screens and phone screens live in the prototypes above.</p>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
