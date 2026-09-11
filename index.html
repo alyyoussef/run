@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0a0f0d" />
+  <meta name="description" content="A short product design exercise: micro interaction design and content prioritization within a constrained interface." />
+  <title>Short product design exercise - constrained interface</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="atmosphere" aria-hidden="true">
+    <div class="orb orb-a" data-parallax="0.18"></div>
+    <div class="orb orb-b" data-parallax="0.08"></div>
+    <div class="orb orb-c" data-parallax="0.28"></div>
+    <div class="grain"></div>
+  </div>
+
+  <div class="scroll-progress" aria-hidden="true">
+    <span class="scroll-progress__bar"></span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#top">Aly Youssef</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle__label">Menu</span>
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Page">
+        <a href="#approach">Approach</a>
+        <a href="#research">Research</a>
+        <a href="#data">Data</a>
+        <a href="#interactions">Interactions</a>
+        <a href="#personas">Personas</a>
+        <a href="#phone">Phone</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">Short product design exercise</p>
+          <h1>Micro interaction design, and content prioritization within a constrained interface.</h1>
+          <p class="lede">
+            Thank you for the opportunity to show my design skills and thinking!
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#personas">View prototypes</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="approach">
+      <div class="wrap">
+        <p class="section-index">01</p>
+        <h2>In a working environment</h2>
+        <p class="section-intro">
+          I would start conversations with:
+        </p>
+
+        <div class="stake-grid">
+          <article class="glass-card">
+            <h3>Project lead</h3>
+            <p>I would talk with the project manager or lead to understand the goals, so I can deliver.</p>
+          </article>
+          <article class="glass-card">
+            <h3>Technical team</h3>
+            <p>I would ask what the devices can do: features, limits, and advantages, so the design can make the most of the hardware.</p>
+          </article>
+          <article class="glass-card">
+            <h3>Marketing and sales</h3>
+            <p>I would ask what target users value, what they expect, who the competitors are, and how each product is positioned.</p>
+          </article>
+          <article class="glass-card">
+            <h3>Design team</h3>
+            <p>I would learn how they approach the design system, interactions, color, and typography, and most importantly, any user personas that already shape the work.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-constraint" id="research">
+      <div class="wrap constraint-grid">
+        <div>
+          <p class="section-index">02</p>
+          <h2>Research</h2>
+          <p class="section-intro">
+            I read the brief several times so I understood what was expected, and what to deliver.
+            Then I looked through
+            <a href="https://vitalist.co" target="_blank" rel="noopener noreferrer">Vitalist.co</a>
+            and followed a link to Reebok smartwatches.
+            On
+            <a href="https://connect.reebok.com/smartwatches/" target="_blank" rel="noopener noreferrer">connect.reebok.com/smartwatches</a>,
+            the Reebok Rush stood out: it has the smallest screen, at 1.39&quot;.
+            That fit the brief, so I designed the prototype for it.
+          </p>
+          <p>
+            Then I did a short desk-research pass, some of it by hand, some with AI, to understand who might buy a smartwatch under $200 for a ~5km run.
+            From that, I built three mock user personas to inform the design.
+            The aim was to justify decisions for different people.
+            Users may expect some personalization; personas helped me give each person a more fitting experience.
+          </p>
+        </div>
+        <figure class="size-figure">
+          <img
+            class="research-watch"
+            src="./Pace-2.png"
+            alt="Smartwatch showing a guided run interface with pace, time, distance, and heart rate"
+            width="640"
+            height="640"
+          />
+          <figcaption>Reebok Rush display at 1.39&quot;. This is the canvas I designed in.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="data">
+      <div class="wrap">
+        <p class="section-index">03</p>
+        <h2>Data</h2>
+        <p class="section-intro">
+          The brief asked for these numbers during the session:
+        </p>
+        <ul class="metric-checklist">
+          <li>Pace</li>
+          <li>Heart rate</li>
+          <li>Cadence</li>
+          <li>Elapsed time</li>
+          <li>Distance</li>
+        </ul>
+
+        <div class="glass-card hierarchy-card">
+          <p>
+            During a run, people deal with heat, cold, humidity, rain, or snow.
+            Effort, terrain, and gear can make a glance harder.
+            The wrist is moving, so small text is easy to miss.
+            Age, fitness level, and accessibility needs add to that.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="interactions">
+      <div class="wrap interactions-grid">
+        <div>
+          <p class="section-index">04</p>
+          <h2>Interactions</h2>
+          <p class="section-intro">
+            Horizontal swipe is a familiar smartwatch interaction that I used in this prototype. Please note, for simplicity, I implemented a swipe-left gesture to navigate the Figma prototypes.
+          </p>
+        </div>
+        <figure class="interaction-figure">
+          <img
+            class="swipe-icon"
+            src="./swipe-left.png"
+            alt="Swipe left gesture icon"
+            width="320"
+            height="320"
+          />
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="personas">
+      <div class="wrap">
+        <p class="section-index">05</p>
+        <h2>Personalization</h2>
+        <p class="section-intro">
+          Personalization is increasingly expected in digital products. I developed three personas representing different physical abilities and accessibility needs to ensure the experience felt tailored and inclusive, rather than one-size-fits-all.
+        </p>
+        <nav class="proto-jump" aria-label="Prototypes">
+          <a href="#chris">Chris</a>
+          <a href="#sam">Sam</a>
+          <a href="#jordan">Jordan</a>
+        </nav>
+      </div>
+
+      <article class="proto-block" id="chris">
+        <div class="wrap proto-layout">
+          <div class="proto-copy">
+            <h3 class="persona-name">Chris · 68</h3>
+            <p class="persona-role">Retired HR worker</p>
+            <p>
+              Recently joined a seniors’ running club as a social activity. The group meets once a week.
+            </p>
+            <dl class="proto-meta">
+              <div>
+                <dt>Accessibility</dt>
+                <dd>Reduced vision. Small digital text is hard to read.</dd>
+              </div>
+              <div>
+                <dt>Personalized experience</dt>
+                <dd>Large text and numbers. One metric per screen.</dd>
+              </div>
+              <div>
+                <dt>Metrics, in order</dt>
+                <dd>Distance, run time, heart rate.</dd>
+              </div>
+            </dl>
+            <a class="text-link" href="https://www.figma.com/proto/CgkkOlu9FYwVnXIEbT4GQ8?page-id=0%3A1&amp;node-id=2154-169&amp;starting-point-node-id=2017%3A233&amp;scaling=min-zoom&amp;content-scaling=fixed" target="_blank" rel="noopener noreferrer">Open Chris’s prototype in Figma</a>
+          </div>
+          <div class="embed-shell">
+            <iframe
+              title="Chris - guided 5km run prototype"
+              loading="lazy"
+              allowfullscreen
+              src="https://embed.figma.com/proto/CgkkOlu9FYwVnXIEbT4GQ8?page-id=0%3A1&amp;node-id=2154-169&amp;viewport=-1313%2C5819%2C1.06&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;starting-point-node-id=2017%3A233&amp;embed-host=share"
+            ></iframe>
+          </div>
+        </div>
+      </article>
+
+      <article class="proto-block" id="sam">
+        <div class="wrap proto-layout">
+          <div class="proto-copy">
+            <h3 class="persona-name">Sam · 52</h3>
+            <p class="persona-role">Chain restaurant manager</p>
+            <p>
+              Would rather watch motorsport on TV, but is trying to run three times a week to help manage cholesterol, as their doctor recommended.
+            </p>
+            <dl class="proto-meta">
+              <div>
+                <dt>Accessibility</dt>
+                <dd>Easily overwhelmed by visual complexity. Prefers a simple interface.</dd>
+              </div>
+              <div>
+                <dt>Personalized experience</dt>
+                <dd>A simple, clean look. Racing flags for motivation, based on their interest in motorsport.</dd>
+              </div>
+              <div>
+                <dt>Metrics, in order</dt>
+                <dd>Pace, run time, heart rate.</dd>
+              </div>
+            </dl>
+            <a class="text-link" href="https://www.figma.com/proto/CgkkOlu9FYwVnXIEbT4GQ8?page-id=0%3A1&amp;node-id=2151-1014&amp;starting-point-node-id=2017%3A233&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">Open Sam’s prototype in Figma</a>
+          </div>
+          <div class="embed-shell">
+            <iframe
+              title="Sam - guided 5km run prototype"
+              loading="lazy"
+              allowfullscreen
+              src="https://embed.figma.com/proto/CgkkOlu9FYwVnXIEbT4GQ8?node-id=2151-1014&amp;viewport=-363%2C3528%2C0.55&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;starting-point-node-id=2017%3A233&amp;show-proto-sidebar=1&amp;page-id=0%3A1&amp;embed-host=share"
+            ></iframe>
+          </div>
+        </div>
+      </article>
+
+      <article class="proto-block" id="jordan">
+        <div class="wrap proto-layout">
+          <div class="proto-copy">
+            <h3 class="persona-name">Jordan · 38</h3>
+            <p class="persona-role">Logistics coordinator</p>
+            <p>
+              Casually runs to help relieve work-related stress and prevent burnout.
+            </p>
+            <dl class="proto-meta">
+              <div>
+                <dt>Accessibility</dt>
+                <dd>Color blindness. Difficulty telling red from green.</dd>
+              </div>
+              <div>
+                <dt>Personalized experience</dt>
+                <dd>Detail-oriented. Wants to see all the metrics at once. Colors fitting their accessibility needs.</dd>
+              </div>
+              <div>
+                <dt>Metrics, in order</dt>
+                <dd>Pace, run time, distance, heart rate, cadence.</dd>
+              </div>
+            </dl>
+            <a class="text-link" href="https://www.figma.com/proto/CgkkOlu9FYwVnXIEbT4GQ8?page-id=0%3A1&amp;node-id=2147-743&amp;starting-point-node-id=2017%3A233&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">Open Jordan’s prototype in Figma</a>
+          </div>
+          <div class="embed-shell">
+            <iframe
+              title="Jordan - guided 5km run prototype"
+              loading="lazy"
+              allowfullscreen
+              src="https://embed.figma.com/proto/CgkkOlu9FYwVnXIEbT4GQ8?node-id=2147-743&amp;viewport=-363%2C3909%2C0.55&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;starting-point-node-id=2017%3A233&amp;show-proto-sidebar=1&amp;page-id=0%3A1&amp;embed-host=share"
+            ></iframe>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="phone">
+      <div class="wrap">
+        <p class="section-index">06</p>
+        <h2>Smartphone screen</h2>
+        <p class="section-intro">
+          I used Figma’s AI to quickly generate a generic running-app phone screen, then adjusted it.
+          The watch designs, most of the animations, and all of the interactions were built by hand, to show my Figma skills.
+        </p>
+        <figure class="phone-figure">
+          <img
+            class="phone-screen"
+            src="./Pre-run-workout.png"
+            alt="Pre-run workout phone screen showing morning run setup, readiness, distance, and target pace"
+            width="1170"
+            height="2532"
+          />
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="close">
+      <div class="wrap">
+        <p class="section-index">07</p>
+        <h2>Happy to chat further</h2>
+        <p class="section-intro">
+          Thank you again. I am happy to chat about this exercise, and answer any related questions.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>Aly Youssef</p>
+      <p class="footer-clock" id="local-clock" aria-live="polite">Loading local time…</p>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
